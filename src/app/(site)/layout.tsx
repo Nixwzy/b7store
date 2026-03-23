@@ -1,3 +1,5 @@
+import { Header } from "@/components/layout/header";
+
 export default function SiteLayout({
   children,
 }: Readonly<{
@@ -6,6 +8,7 @@ export default function SiteLayout({
 {
   return (
    <div>
+    <Header />
     {children}
    </div>
   );
