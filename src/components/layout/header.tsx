@@ -12,26 +12,32 @@ export function Header() {
       </div>
       <div className="p-6 w-full max-w-6xl mx-auto">
         <div className="flex items-center justify-between">
-          <div className="w-32">
-            <Image
-              src="/assets/ui/logo-black.png"
-              alt="Logo"
-              width={120}
-              height={40}
-            />
-          </div>
+          <Link href={'/'}>
+            <div className="w-32">
+              <Image
+                src="/assets/ui/logo-black.png"
+                alt="Logo"
+                width={120}
+                height={40}
+              />
+            </div>
+          </Link>
+
           <div className="flex gap-4">
             {/* TODO: Implement order history link */}
             <Link href={'/orders'}>
               <HeaderIcon src="/assets/ui/user-line.png" alt="User Icon" />
             </Link>
-             <Link href={'/cart'}>
-              <HeaderIcon src="/assets/ui/shopping-bag-4-line.png" alt="Cart Icon" />
+            <Link href={'/cart'}>
+              <HeaderIcon
+                src="/assets/ui/shopping-bag-4-line.png"
+                alt="Cart Icon"
+              />
             </Link>
             {/* Menu only in mobile */}
-             <div className='md:hidden'>
-                <HeaderIcon src="/assets/ui/menu-line.png" alt="Menu Icon" />
-             </div>
+            <div className="md:hidden">
+              <HeaderIcon src="/assets/ui/menu-line.png" alt="Menu Icon" />
+            </div>
           </div>
         </div>
       </div>
