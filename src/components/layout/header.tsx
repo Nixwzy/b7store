@@ -56,7 +56,10 @@ export function Header() {
             </Link>
             {/* mobile menu */}
             <div className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <HeaderIcon src="/assets/ui/menu-line.png" alt="Menu Icon" />
+              <HeaderIcon src="/assets/ui/menu-line.png" 
+              alt="Menu Icon"
+              selected={isMenuOpen}
+              srcSelected="/assets/ui/menu-line-white.png" />
             </div>
           </div>
         </div>
