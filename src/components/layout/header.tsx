@@ -1,24 +1,28 @@
-"use client"
-import Image from "next/image"
+'use client';
+import Image from 'next/image';
 
 export function Header() {
-    return (
-        <header className="bg-white border-b border-gray-200">
-            <div className="bg-black text-white p-4 text-center">
-                <strong>FRETE GRÁTIS</strong> em todo o site para compras acima de R$ 199,00!
+  return (
+    <header className="bg-white border-b border-gray-200">
+      <div className="bg-black text-white p-4 text-center">
+        <strong>FRETE GRÁTIS</strong> em todo o site para compras acima de R$
+        199,00!
+      </div>
+      <div className="p-6 w-full max-w-6xl mx-auto">
+        <div className="flex items-center justify-between">
+          <div className="w-32">
+            <Image
+              src="/assets/ui/logo-black.png"
+              alt="Logo"
+              width={120}
+              height={40}
+            />
+          </div>
+            <div className="">
+                buttons
             </div>
-            <div className="p-6 w-full max-w-6xl mx-auto">
-                <div className="">
-                    <Image src="/assets/ui/logo-black.png" 
-                    alt="Logo"
-                    width={120}
-                    height={40}
-                    />
-                </div>
-                <div className="">
-                    buttons
-                </div>
-            </div>
-        </header>
-    )
+        </div>
+      </div>
+    </header>
+  );
 }
