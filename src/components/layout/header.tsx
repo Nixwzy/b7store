@@ -4,17 +4,17 @@ import { HeaderIcon } from './header-icon';
 import Link from 'next/link';
 
 type MenuItem = {
-    label: string;
-    href: string;
-}
+  label: string;
+  href: string;
+};
 
 export function Header() {
-    const menu = [
-        {label: 'Camisetas', href: 'categories/camisas'},
-        {label: 'Acessórios', href: 'categories/acessorios'},
-        {label: 'Kits', href: 'categories/kits'},
-        {label: 'Eletrônicos', href: 'categories/eletronicos'},
-    ];
+  const menu = [
+    { label: 'Camisetas', href: 'categories/camisas' },
+    { label: 'Acessórios', href: 'categories/acessorios' },
+    { label: 'Kits', href: 'categories/kits' },
+    { label: 'Eletrônicos', href: 'categories/eletronicos' },
+  ];
   return (
     <header className="bg-white border-b border-gray-200">
       <div className="bg-black text-white p-4 text-center">
@@ -54,13 +54,20 @@ export function Header() {
       </div>
       {/* mobile sections */}
       <div className="md:hidden">
-       {menu.map(item => (
-        <Link key={item.label} href={item.href}>
-            <div className='p-6'>
-                {item.label}
+        {menu.map((item) => (
+          <Link key={item.label} href={item.href}>
+            <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+              <div className='font-medium text-lg'>{item.label}</div>
+
+              <Image
+                src="/assets/ui/arrow-up-right.png"
+                alt="Arrow Icon"
+                width={24}
+                height={24}
+              />
             </div>
-        </Link>
-       ))}
+          </Link>
+        ))}
       </div>
       <div className="md:hidden p-6">Search</div>
     </header>
