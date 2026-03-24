@@ -21,6 +21,7 @@ export function Header() {
             />
           </div>
           <div className="flex gap-4">
+            {/* TODO: Implement order history link */}
             <Link href={'/orders'}>
               <HeaderIcon src="/assets/ui/user-line.png" alt="User Icon" />
             </Link>
@@ -28,7 +29,7 @@ export function Header() {
               <HeaderIcon src="/assets/ui/shopping-bag-4-line.png" alt="Cart Icon" />
             </Link>
             {/* Menu only in mobile */}
-             <div className=''>
+             <div className='md:hidden'>
                 <HeaderIcon src="/assets/ui/menu-line.png" alt="Menu Icon" />
              </div>
           </div>
