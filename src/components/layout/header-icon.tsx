@@ -7,7 +7,7 @@ type Props = {
 
 export const HeaderIcon = ({ src, alt }: Props) => {
   return (
-    <div className="size-12 border border-gray-200 rounded-sm flex items-center justify-center">
+    <div className="size-12 border border-gray-200 rounded-sm flex items-center justify-center hover:bg-gray-100 cursor-pointer">
       <Image
         src={src}
         alt={alt}

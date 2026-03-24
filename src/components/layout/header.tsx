@@ -21,10 +21,16 @@ export function Header() {
             />
           </div>
           <div className="flex gap-4">
-            <Link href={'my-orders'}>
-              {/* TODO: CHANGE LINK HREF */}
+            <Link href={'/orders'}>
               <HeaderIcon src="/assets/ui/user-line.png" alt="User Icon" />
             </Link>
+             <Link href={'/cart'}>
+              <HeaderIcon src="/assets/ui/shopping-bag-4-line.png" alt="Cart Icon" />
+            </Link>
+            {/* Menu only in mobile */}
+             <div className=''>
+                <HeaderIcon src="/assets/ui/menu-line.png" alt="Menu Icon" />
+             </div>
           </div>
         </div>
       </div>
