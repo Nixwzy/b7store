@@ -18,9 +18,17 @@ export function Header() {
               height={40}
             />
           </div>
-            <div className="">
-                buttons
+          <div className="flex gap-4">
+            <div className="size-12 border border-gray-200 rounded-sm flex items-center justify-center">
+              <Image
+                src="/assets/ui/user-line.png"
+                alt="User Icon"
+                width={24}
+                height={24}
+                className="size-6"
+              />
             </div>
+          </div>
         </div>
       </div>
     </header>
