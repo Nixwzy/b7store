@@ -5,6 +5,7 @@ import { HeaderIcon } from './header-icon';
 import Link from 'next/link';
 import { useState } from 'react';
 import { is } from 'zod/locales';
+import { HeaderSearch } from './header-search';
 
 type MenuItem = {
   label: string;
@@ -85,8 +86,10 @@ export function Header() {
           ))}
         </div>
       )}
-      {/* search */}
-      <div className="md:hidden p-6">Search</div>
+      {/* search section*/}
+      <div className="md:hidden p-6">
+        <HeaderSearch />
+      </div>
     </header>
   );
 }
