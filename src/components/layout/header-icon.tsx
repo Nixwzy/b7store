@@ -23,6 +23,7 @@ export const HeaderIcon = ({ src, alt, selected, srcSelected }: Props) => {
           height={24}
           className="size-6"
         />
+        // Fallback to original icon if srcSelected is not provided
       )}
     </div>
   );
