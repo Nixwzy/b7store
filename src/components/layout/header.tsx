@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 
 export function Header() {
     return (
@@ -8,7 +9,11 @@ export function Header() {
             </div>
             <div className="p-6 w-full max-w-6xl mx-auto">
                 <div className="">
-                    Logo
+                    <Image src="/assets/ui/logo-black.png" 
+                    alt="Logo"
+                    width={120}
+                    height={40}
+                    />
                 </div>
                 <div className="">
                     buttons
