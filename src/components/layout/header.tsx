@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { HeaderIcon } from './header-icon';
 import Link from 'next/link';
 import { useState } from 'react';
+import { is } from 'zod/locales';
 
 type MenuItem = {
   label: string;
@@ -18,17 +19,17 @@ export function Header() {
     { label: 'Eletrônicos', href: 'categories/eletronicos' },
   ];
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // menu state toggle mobile menu
 
   return (
     <header className="bg-white border-b border-gray-200">
-            {/* top banner */}
+      {/* top banner */}
       <div className="bg-black text-white p-4 text-center">
         <strong>FRETE GRÁTIS</strong> em todo o site para compras acima de R$
         199,00!
       </div>
 
-            {/* main content */}
+      {/* main content */}
       <div className="p-6 w-full max-w-6xl mx-auto">
         <div className="flex items-center justify-between">
           <Link href={'/'}>
@@ -41,7 +42,7 @@ export function Header() {
               />
             </div>
           </Link>
-            {/* user actions */}
+          {/* user actions */}
           <div className="flex gap-4">
             {/* TODO: Implement order history link */}
             <Link href={'/orders'}>
@@ -54,29 +55,33 @@ export function Header() {
               />
             </Link>
             {/* mobile menu */}
-            <div className="md:hidden">
+            <div className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <HeaderIcon src="/assets/ui/menu-line.png" alt="Menu Icon" />
             </div>
           </div>
         </div>
       </div>
-      {/* mobile menu sections */}
-      <div className="md:hidden">
-        {menu.map((item) => (
-          <Link key={item.label} href={item.href}>
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-              <div className='font-medium text-gray-500 text-lg'>{item.label}</div>
+      {/* mobile menu sections state={isMenuOpen} */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          {menu.map((item) => (
+            <Link key={item.label} href={item.href}>
+              <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+                <div className="font-medium text-gray-500 text-lg">
+                  {item.label}
+                </div>
 
-              <Image
-                src="/assets/ui/arrow-up-right.png"
-                alt="Arrow Icon"
-                width={24}
-                height={24}
-              />
-            </div>
-          </Link>
-        ))}
-      </div>
+                <Image
+                  src="/assets/ui/arrow-up-right.png"
+                  alt="Arrow Icon"
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
       {/* search */}
       <div className="md:hidden p-6">Search</div>
     </header>
