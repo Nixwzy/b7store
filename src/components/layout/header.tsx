@@ -1,5 +1,7 @@
 'use client';
 import Image from 'next/image';
+import { HeaderIcon } from './header-icon';
+import Link from 'next/link';
 
 export function Header() {
   return (
@@ -19,15 +21,10 @@ export function Header() {
             />
           </div>
           <div className="flex gap-4">
-            <div className="size-12 border border-gray-200 rounded-sm flex items-center justify-center">
-              <Image
-                src="/assets/ui/user-line.png"
-                alt="User Icon"
-                width={24}
-                height={24}
-                className="size-6"
-              />
-            </div>
+            <Link href={'my-orders'}>
+              {/* TODO: CHANGE LINK HREF */}
+              <HeaderIcon src="/assets/ui/user-line.png" alt="User Icon" />
+            </Link>
           </div>
         </div>
       </div>
