@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { HeaderIcon } from './header-icon';
 import Link from 'next/link';
+import { useState } from 'react';
 
 type MenuItem = {
   label: string;
@@ -16,6 +17,9 @@ export function Header() {
     { label: 'Kits', href: 'categories/kits' },
     { label: 'Eletrônicos', href: 'categories/eletronicos' },
   ];
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="bg-white border-b border-gray-200">
             {/* top banner */}
