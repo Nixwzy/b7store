@@ -9,7 +9,7 @@ type MenuItem = {
 };
 
 export function Header() {
-  const menu = [
+  const menu: MenuItem[] = [
     { label: 'Camisetas', href: 'categories/camisas' },
     { label: 'Acessórios', href: 'categories/acessorios' },
     { label: 'Kits', href: 'categories/kits' },
@@ -57,7 +57,7 @@ export function Header() {
         {menu.map((item) => (
           <Link key={item.label} href={item.href}>
             <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-              <div className='font-medium text-lg'>{item.label}</div>
+              <div className='font-medium text-gray-500 text-lg'>{item.label}</div>
 
               <Image
                 src="/assets/ui/arrow-up-right.png"
