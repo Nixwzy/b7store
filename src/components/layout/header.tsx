@@ -49,7 +49,7 @@ export function Header() {
               <div className="flex-1">
                 <ul className="flex gap-10 font-medium text-gray-500">
                   {menu.map((item) => (
-                    <li>
+                    <li key={item.label}>
                       <Link key={item.label} href={item.href}>
                         {item.label}
                       </Link>
