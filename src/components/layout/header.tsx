@@ -30,9 +30,9 @@ export function Header() {
         199,00!
       </div>
 
-      {/* main content */}
+      {/* Logo */}
       <div className="p-6 w-full max-w-6xl mx-auto">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center">
           <div className='w-32'>
             <Link href={'/'}>
               <Image
@@ -42,6 +42,12 @@ export function Header() {
                 height={40}
               />
             </Link>
+          </div>
+
+          <div className='bg-red-400 flex-1'>
+            <div className='w-full hidden md:block'>
+              MENU DESKTOP
+            </div>
           </div>
 
           {/* user actions */}
