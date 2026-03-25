@@ -33,16 +33,17 @@ export function Header() {
       {/* main content */}
       <div className="p-6 w-full max-w-6xl mx-auto">
         <div className="flex items-center justify-between">
-          <Link href={'/'}>
-            <div className="w-32">
+          <div className='w-32'>
+            <Link href={'/'}>
               <Image
                 src="/assets/ui/logo-black.png"
                 alt="Logo"
                 width={120}
                 height={40}
               />
-            </div>
-          </Link>
+            </Link>
+          </div>
+
           {/* user actions */}
           <div className="flex gap-4">
             {/* TODO: Implement order history link */}
@@ -56,11 +57,16 @@ export function Header() {
               />
             </Link>
             {/* mobile menu */}
-            <div className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <HeaderIcon src="/assets/ui/menu-line.png" 
-              alt="Menu Icon"
-              selected={isMenuOpen}
-              srcSelected="/assets/ui/menu-line-white.png" />
+            <div
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <HeaderIcon
+                src="/assets/ui/menu-line.png"
+                alt="Menu Icon"
+                selected={isMenuOpen}
+                srcSelected="/assets/ui/menu-line-white.png"
+              />
             </div>
           </div>
         </div>
