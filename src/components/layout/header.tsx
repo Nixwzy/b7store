@@ -33,7 +33,7 @@ export function Header() {
       {/* Logo */}
       <div className="p-6 w-full max-w-6xl mx-auto">
         <div className="flex items-center">
-          <div className='w-32'>
+          <div className="w-32">
             <Link href={'/'}>
               <Image
                 src="/assets/ui/logo-black.png"
@@ -43,10 +43,23 @@ export function Header() {
               />
             </Link>
           </div>
-
-          <div className='bg-red-400 flex-1'>
-            <div className='w-full hidden md:block'>
-              MENU DESKTOP
+          {/* Desktop Menu */}
+          <div className="flex-1">
+            <div className=" w-full hidden md:flex items-center px-6 gap-6">
+              <div className="flex-1">
+                <ul className="flex gap-10 font-medium text-gray-500">
+                  {menu.map((item) => (
+                    <li>
+                      <Link key={item.label} href={item.href}>
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="w-80">
+                <HeaderSearch />
+              </div>
             </div>
           </div>
 
