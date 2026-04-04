@@ -1,3 +1,4 @@
+// Static data — will never change
 export const staticData = {
   benefits: [
     {
