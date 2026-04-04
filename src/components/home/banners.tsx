@@ -1,3 +1,4 @@
+'use client';
 import { Banner } from '@/types/banner';
 import Image from 'next/image';
 import Link from 'next/link';
