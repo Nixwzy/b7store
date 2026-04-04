@@ -14,7 +14,7 @@ let carouselTimer: NodeJS.Timeout; // timer variable to control the banner rotat
 export const Banners = ({ list }: Props) => {
   const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
 
-  const neymarJunior2011 = () => {
+  const nextBanner = () => {
     setCurrentImg((currentImg) => {
       if (currentImg + 1 >= list.length) {
         return 0;
@@ -25,7 +25,7 @@ export const Banners = ({ list }: Props) => {
   };
 
   useEffect(() => {
-    carouselTimer = setInterval(neymarJunior2011, 1000);
+    carouselTimer = setInterval(nextBanner, 1000);
   }, []); 
   
   return (
