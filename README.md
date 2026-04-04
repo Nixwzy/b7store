@@ -2,10 +2,7 @@
   <img src="./public/assets/ui/logo-white.png" alt="B7Store" height="60" />
 </div>
 
----
-
 Fashion e-commerce focused on t-shirts and caps.
-</br>
 </br>
 </br>
 
