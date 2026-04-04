@@ -1,9 +1,10 @@
 import { Banners } from '@/components/home/banners';
-import { TrendingProducts } from '@/components/home/trending-products';
+import { TopViewedProducts } from '@/components/home/top-viewed-products';
 import { ProductListSkeleton } from '@/components/home/product-list-skeleton';
 import { data } from '@/data';
 import Image from 'next/image';
 import { Suspense } from 'react';
+import { TopSoldProducts } from '@/components/home/top-sold-products';
 
 export default function Page() {
   return (
@@ -27,10 +28,10 @@ export default function Page() {
         ))}
       </div>
       <Suspense fallback={<ProductListSkeleton />}>
-        <TrendingProducts />
+        <TopViewedProducts />
       </Suspense>
       <Suspense fallback={<ProductListSkeleton />}>
-
+        <TopSoldProducts />
       </Suspense>
     </div>
   );
