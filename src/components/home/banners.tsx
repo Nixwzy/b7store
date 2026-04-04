@@ -1,40 +1,15 @@
 'use client';
+import { useBannerCarousel } from '@/hooks/use-banner-carousel';
 import { Banner } from '@/types/banner';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
 
 type Props = {
   list: Banner[];
 };
 
 export const Banners = ({ list }: Props) => {
-  const [currentImg, setCurrentImg] = useState(0);
-  const carouselTimerRef = useRef<NodeJS.Timeout | null>(null); // ref to store the timer
-  const carouselInterval = 3000;
-
-  const nextBanner = () => {
-    setCurrentImg((currentImg) => {
-      if (currentImg + 1 >= list.length) {
-        return 0;
-      } else {
-        return currentImg + 1;
-      }
-    });
-  };
-
-  useEffect(() => {
-    carouselTimerRef.current = setInterval(nextBanner, carouselInterval);
-    return () => {
-      if (carouselTimerRef.current) clearInterval(carouselTimerRef.current); // cleanup
-    };
-  }, []);
-
-  const handleBannerClick = (index: number) => {
-    setCurrentImg(index);
-    if (carouselTimerRef.current) clearInterval(carouselTimerRef.current); // clear current timer
-    carouselTimerRef.current = setInterval(nextBanner, carouselInterval); // restart timer
-  };
+  const { currentImg, handleBannerClick } = useBannerCarousel(list.length);
 
   return (
     <div>
@@ -62,7 +37,7 @@ export const Banners = ({ list }: Props) => {
       </div>
       {/* slide dots */}
       <div className="mt-4 flex justify-center gap-2">
-        {list.map((banner, index) => (
+        {list.map((_, index) => (
           <div
             key={index}
             className="size-4 bg-blue-600 rounded-full cursor-pointer"
