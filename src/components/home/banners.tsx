@@ -23,7 +23,7 @@ export const Banners = ({ list }: Props) => {
             key={index}
             href={banner.link}
             style={{ opacity: currentImg === index ? 1 : 0 }}
-            className="absolute inset-0 transition-all"
+            className="absolute inset-0 transition-opacity duration-700"
           >
             <Image
               src={banner.img}
