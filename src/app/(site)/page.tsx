@@ -1,10 +1,9 @@
 import { Banners } from '@/components/home/banners';
-import { TopViewedProducts } from '@/components/home/top-viewed-products';
-import { ProductListSkeleton } from '@/components/home/product-list-skeleton';
 import { data } from '@/data';
 import Image from 'next/image';
 import { Suspense } from 'react';
-import { TopSoldProducts } from '@/components/home/top-sold-products';
+import { ProductListSkeleton } from '@/components/home/product-list-skeleton';
+import { ProductSection } from '@/components/home/product-section';
 
 export default function Page() {
   return (
@@ -28,10 +27,17 @@ export default function Page() {
         ))}
       </div>
       <Suspense fallback={<ProductListSkeleton />}>
-        <TopViewedProducts />
+        <ProductSection
+          title="Produtos mais vistos"
+          subtitle="Estes produtos na mira dos nossos clientes!"
+        />
       </Suspense>
+
       <Suspense fallback={<ProductListSkeleton />}>
-        <TopSoldProducts />
+        <ProductSection
+          title="Produtos mais vendidos"
+          subtitle="Estes são os produtos mais populares da nossa loja!"
+        />
       </Suspense>
     </div>
   );
