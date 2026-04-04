@@ -7,7 +7,7 @@ export default function Page() {
     <div>
       <Banners list={data.banners} />
       <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-6 md:mt-12">
-        {/* benefits array are in @/data */}
+        {/* benefits array in @/data */}
         {data.benefits.map((item) => (
           <div key={item.title} className="flex flex-1 py-6 border border-gray-200 rounded-sm">
             <div className="w-32 border-r border-gray-200 flex justify-center items-center">
