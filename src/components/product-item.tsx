@@ -11,6 +11,9 @@ type Props = {
 export const ProductItem = ({ data }: Props) => {
   const [liked, setLiked] = useState(data.liked);
   const link = `/product/${data.id}`;
+  const formattedPrice = data.price.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+  });
   const handleLikeToggle = () => {
     setLiked(!liked);
   };
@@ -22,22 +25,16 @@ export const ProductItem = ({ data }: Props) => {
           onClick={handleLikeToggle}
           className="cursor-pointer size-12 flex justify-center items-center ml-auto"
         >
-          {liked && (
-            <Image
-              src="/assets/ui/heart-3-fill.png"
-              alt=""
-              width={24}
-              height={24}
-            />
-          )}
-          {!liked && (
-            <Image
-              src="/assets/ui/heart-3-line.png"
-              alt=""
-              width={24}
-              height={24}
-            />
-          )}
+          <Image
+            src={
+              liked
+                ? '/assets/ui/heart-3-fill.png'
+                : '/assets/ui/heart-3-line.png'
+            }
+            alt=""
+            width={24}
+            height={24}
+          />
         </div>
       </div>
 
@@ -56,9 +53,7 @@ export const ProductItem = ({ data }: Props) => {
         <Link href={link}>{data.label}</Link>
       </div>
       <div className="mt-3 text-xl font-bold text-blue-600 md:text-center">
-        <Link href={link}>
-          R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-        </Link>
+        <Link href={link}>R$ {formattedPrice}</Link>
       </div>
       <div className="mt-5 text-gray-400 md:text-center">
         <Link href={link}>À vista ou em até 12x sem juros</Link>
