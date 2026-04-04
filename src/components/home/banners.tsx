@@ -9,8 +9,10 @@ type Props = {
   list: Banner[];
 };
 
+// TIMEOUT CONTROL FOR BANNER CAROUSEL
 let carouselTimer: NodeJS.Timeout; // timer variable to control the banner rotation interval
 let carouselInterval = 3000;
+
 
 export const Banners = ({ list }: Props) => {
   const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
@@ -54,9 +56,17 @@ export const Banners = ({ list }: Props) => {
           </Link>
         ))}
       </div>
-      {/* Slide dots: each dot represents a banner.
-      Clicking a dot updates the current state, showing the corresponding banner. */}
-      <div>slide dots</div>
+      {/* slide dots */}
+      <div className="mt-4 flex justify-center gap-2">
+        {list.map((banner, index) => (
+          <div
+            key={index}
+            className="size-4 bg-blue-600 rounded-full cursor-pointer"
+            style={{ opacity: currentImg === index ? 1 : 0.3 }}
+            
+          />
+        ))}
+      </div>
     </div>
   );
 };
