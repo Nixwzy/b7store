@@ -2,11 +2,15 @@
 import { Banner } from '@/types/banner';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { set } from 'zod';
 
 type Props = {
   list: Banner[];
 };
+
+let carouselTimer: NodeJS.Timeout; // timer variable to control the banner rotation interval
+
 export const Banners = ({ list }: Props) => {
   const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
 
@@ -19,6 +23,11 @@ export const Banners = ({ list }: Props) => {
       }
     });
   };
+
+  useEffect(() => {
+    carouselTimer = setInterval(neymarJunior2011, 1000);
+  }, []); 
+  
   return (
     <div>
       {/* banner container: relative + aspect-[3/1] defines the height proportionally.
