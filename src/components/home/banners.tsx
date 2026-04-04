@@ -2,18 +2,16 @@
 import { Banner } from '@/types/banner';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
   list: Banner[];
 };
 
-// TIMEOUT CONTROL FOR BANNER CAROUSEL
-let carouselTimer: NodeJS.Timeout; // timer variable to control the banner rotation interval
-let carouselInterval = 3000;
-
 export const Banners = ({ list }: Props) => {
-  const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
+  const [currentImg, setCurrentImg] = useState(0);
+  const carouselTimerRef = useRef<NodeJS.Timeout | null>(null); // ref to store the timer
+  const carouselInterval = 3000;
 
   const nextBanner = () => {
     setCurrentImg((currentImg) => {
@@ -26,14 +24,16 @@ export const Banners = ({ list }: Props) => {
   };
 
   useEffect(() => {
-    carouselTimer = setInterval(nextBanner, carouselInterval);
-    return () => clearInterval(carouselTimer); // cleanup function to clear the timer when the component unmounts
+    carouselTimerRef.current = setInterval(nextBanner, carouselInterval);
+    return () => {
+      if (carouselTimerRef.current) clearInterval(carouselTimerRef.current); // cleanup
+    };
   }, []);
 
   const handleBannerClick = (index: number) => {
     setCurrentImg(index);
-    clearInterval(carouselTimer); // reset the timer to prevent auto-rotation immediately after a manual change
-    carouselTimer = setInterval(nextBanner, carouselInterval); // restart the timer after manual change
+    if (carouselTimerRef.current) clearInterval(carouselTimerRef.current); // clear current timer
+    carouselTimerRef.current = setInterval(nextBanner, carouselInterval); // restart timer
   };
 
   return (
