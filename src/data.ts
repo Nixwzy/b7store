@@ -1,4 +1,3 @@
-
 export const data = {
   // HARDCODED DATA (will be replaced by API in the future) ----------------------
   banners: [
@@ -12,37 +11,32 @@ export const data = {
       id: 1,
       label: 'Camisa PHP',
       image: '/assets/products/camiseta-php.png',
-      price: 60.00,
+      price: 60.0,
       liked: false,
     },
-      {
+    {
       id: 2,
       label: 'Camisa Laravel',
       image: '/assets/products/camiseta-laravel-branca.png',
-      price: 60.00,
+      price: 60.0,
       liked: false,
     },
-      {
+    {
       id: 3,
       label: 'Camisa NodeJS',
       image: '/assets/products/camiseta-node.png',
-      price: 60.00,
+      price: 60.0,
       liked: false,
     },
-      {
+    {
       id: 4,
       label: 'Camisa React',
       image: '/assets/products/camiseta-react-azul.png',
-      price: 60.00,
+      price: 60.0,
       liked: false,
     },
   ],
   // HARDCODED DATA ---------------------------------------------------------
-  
-
-
-
-
 
   // STATIC INFO ----------------------------------------------------------------------
   benefits: [
@@ -68,7 +62,23 @@ export const data = {
     { label: 'Kits', href: 'categories/kits' },
     { label: 'Eletrônicos', href: 'categories/eletronicos' },
   ],
+  socialLinks: [
+    {
+      href: 'https://www.instagram.com/broxadasinistra/?hl=pt-br',
+      icon: '/assets/ui/instagram-line.png',
+    },
+    {
+      href: 'https://github.com/Nixwzy/b7store',
+      icon: '/assets/ui/linkedin-line.png',
+    },
+    {
+      href: 'https://github.com/Nixwzy/b7store',
+      icon: '/assets/ui/facebook-line.png',
+    },
+    {
+      href: 'https://github.com/Nixwzy/b7store',
+      icon: '/assets/ui/twitter-x-fill.png',
+    },
+  ],
   // STATIC INFO ----------------------------------------------------------------------
-  
-  
 };
