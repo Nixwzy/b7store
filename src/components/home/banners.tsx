@@ -26,6 +26,7 @@ export const Banners = ({ list }: Props) => {
 
   useEffect(() => {
     carouselTimer = setInterval(nextBanner, 1000);
+    return () => clearInterval(carouselTimer); // cleanup function to clear the timer when the component unmounts
   }, []); 
   
   return (
