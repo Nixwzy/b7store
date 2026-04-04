@@ -17,7 +17,13 @@ export default function Page() {
             className="flex flex-1 py-6 border border-gray-200 rounded-sm"
           >
             <div className="w-32 border-r border-gray-200 flex justify-center items-center">
-              <Image src={item.icon} alt="" width={40} height={30} />
+              <Image
+                src={item.icon}
+                alt=""
+                width={40}
+                height={40}
+                style={{ width: 40, height: 'auto' }}
+              />
             </div>
             <div className="flex-1 pl-8">
               <div className="font-bold text-xl">{item.title}</div>

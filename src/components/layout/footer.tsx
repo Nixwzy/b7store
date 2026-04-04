@@ -16,7 +16,7 @@ export const Footer = () => {
           />
           <div className="text-center md:text-left">
             <h3 className="font-bold text-2xl mb-6 md:mb-2">
-              Inscreva-se para nossa newsletter
+                Assine nossa newsletter
             </h3>
             <p className="text-gray-400">
                 Receba novidades sobre produtos, promoções e muito mais!
@@ -65,7 +65,7 @@ export const Footer = () => {
               </h4>
               <div className="flex flex-col md:flex-row gap-6">
                 <FooterButton
-                  href="mailto:suporte@b7web.com.br"
+                  href="mailto:glopesglcontato@gmail.com"
                   icon="/assets/ui/mail-line.png"
                   label="glopesglcontato@gmail.com"
                 />
