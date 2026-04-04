@@ -22,9 +22,9 @@ src/
 │   └── layout.tsx         # Root layout
 ├── components/
 │   ├── home/
-│   │   ├── banners.tsx          # Banner carousel component
-│   │   ├── trending-products.tsx # Trending products section
-│   │   └── product-list-skeleton.tsx
+│   │   ├── banners.tsx              # Banner carousel component
+│   │   ├── product-list-skeleton.tsx # Skeleton loader for product sections
+│   │   └── product-section.tsx      # Reusable product section (title + subtitle + list)
 │   └── layout/
 │       ├── footer.tsx
 │       ├── footer-button.tsx
@@ -54,7 +54,6 @@ public/
 
 ## Environment Variables
 See `.env.example` for all required variables.
-Never commit `.env` or any file containing real values.
 
 ## Conventions
 - Components in PascalCase
