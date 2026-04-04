@@ -20,7 +20,7 @@ export const ProductListFilter = () => {
         </div>
         <div className="w-full md:max-w-70 flex flex-row gap-5">
           <select
-            defaultValue={order}
+            value={order}
             onChange={handleOrderChange}
             className="h-14 flex-1 flex items-center px-6 bg-white border border-gray-200 rounded-sm text-gray-500"
           >
@@ -41,8 +41,8 @@ export const ProductListFilter = () => {
         <div
           className={`flex-1 md:max-w-70 ${isFilterOpen ? 'block' : 'hidden'} md:block`}
         >
-          <FilterGroup />
-          <FilterGroup />
+          <FilterGroup id="tech" name="Tecnologia" />
+          <FilterGroup id="color" name="Cores" />
         </div>
         <div className="flex-1 grid grid-cols-1 md:grid-cols-3"></div>
       </div>
