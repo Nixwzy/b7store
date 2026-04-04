@@ -13,7 +13,6 @@ type Props = {
 let carouselTimer: NodeJS.Timeout; // timer variable to control the banner rotation interval
 let carouselInterval = 3000;
 
-
 export const Banners = ({ list }: Props) => {
   const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
 
@@ -30,8 +29,13 @@ export const Banners = ({ list }: Props) => {
   useEffect(() => {
     carouselTimer = setInterval(nextBanner, carouselInterval);
     return () => clearInterval(carouselTimer); // cleanup function to clear the timer when the component unmounts
-  }, []); 
-  
+  }, []);
+
+  const handleBannerClick = (index: number) => {
+    setCurrentImg(index);
+    clearInterval(carouselTimer); // reset the timer to prevent auto-rotation immediately after a manual change
+  };
+
   return (
     <div>
       {/* banner container: relative + aspect-[3/1] defines the height proportionally.
@@ -63,7 +67,7 @@ export const Banners = ({ list }: Props) => {
             key={index}
             className="size-4 bg-blue-600 rounded-full cursor-pointer"
             style={{ opacity: currentImg === index ? 1 : 0.3 }}
-            
+            onClick={() => handleBannerClick(index)}
           />
         ))}
       </div>
