@@ -18,10 +18,10 @@ export const staticData = {
     },
   ],
   menu: [
-    { label: 'Camisetas', href: 'categories/camisas' },
-    { label: 'Acessórios', href: 'categories/acessorios' },
-    { label: 'Kits', href: 'categories/kits' },
-    { label: 'Eletrônicos', href: 'categories/eletronicos' },
+    { label: 'Camisetas', href: '/categories/camisas' },
+    { label: 'Acessórios', href: '/categories/acessorios' },
+    { label: 'Kits', href: '/categories/kits' },
+    { label: 'Eletrônicos', href: '/categories/eletronicos' },
   ],
   socialLinks: [
     {
