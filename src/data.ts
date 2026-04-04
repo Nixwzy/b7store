@@ -1,3 +1,4 @@
+
 export const data = {
   // HARDCODED DATA (will be replaced by API in the future) ----------------------
   banners: [
@@ -60,6 +61,12 @@ export const data = {
       title: 'Troca Fácil',
       description: 'Devolução em até 30 dias',
     },
+  ],
+  menu: [
+    { label: 'Camisetas', href: 'categories/camisas' },
+    { label: 'Acessórios', href: 'categories/acessorios' },
+    { label: 'Kits', href: 'categories/kits' },
+    { label: 'Eletrônicos', href: 'categories/eletronicos' },
   ],
   // STATIC INFO ----------------------------------------------------------------------
   

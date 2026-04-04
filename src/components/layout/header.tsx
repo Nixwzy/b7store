@@ -4,22 +4,12 @@ import Image from 'next/image';
 import { HeaderIcon } from './header-icon';
 import Link from 'next/link';
 import { useState } from 'react';
-import { is } from 'zod/locales';
 import { HeaderSearch } from './header-search';
-
-type MenuItem = {
-  label: string;
-  href: string;
-};
+import { data } from '@/data';
+import { HeaderMobileMenu } from './header-mobile-menu';
 
 export function Header() {
-  const menu: MenuItem[] = [
-    { label: 'Camisetas', href: 'categories/camisas' },
-    { label: 'Acessórios', href: 'categories/acessorios' },
-    { label: 'Kits', href: 'categories/kits' },
-    { label: 'Eletrônicos', href: 'categories/eletronicos' },
-  ];
-
+  const menu = data.menu; // menu array in @/data
   const [isMenuOpen, setIsMenuOpen] = useState(false); // menu state toggle mobile menu
 
   return (
@@ -50,9 +40,7 @@ export function Header() {
                 <ul className="flex gap-10 font-medium text-gray-500">
                   {menu.map((item) => (
                     <li key={item.label}>
-                      <Link key={item.label} href={item.href}>
-                        {item.label}
-                      </Link>
+                      <Link href={item.href}>{item.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -75,7 +63,8 @@ export function Header() {
                 alt="Cart Icon"
               />
             </Link>
-            {/* mobile menu */}
+
+            {/* menu icon*/}
             <div
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -90,27 +79,8 @@ export function Header() {
           </div>
         </div>
       </div>
-      {/* mobile menu sections state={isMenuOpen} */}
-      {isMenuOpen && (
-        <div className="md:hidden">
-          {menu.map((item) => (
-            <Link key={item.label} href={item.href}>
-              <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                <div className="font-medium text-gray-500 text-lg">
-                  {item.label}
-                </div>
-
-                <Image
-                  src="/assets/ui/arrow-up-right.png"
-                  alt="Arrow Icon"
-                  width={24}
-                  height={24}
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
+      {/* mobile menu sections IMPORTED */}
+      {isMenuOpen && <HeaderMobileMenu menu={menu} />}
       {/* search section*/}
       <div className="md:hidden p-6">
         <HeaderSearch />
