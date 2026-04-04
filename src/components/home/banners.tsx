@@ -9,7 +9,16 @@ type Props = {
 };
 export const Banners = ({ list }: Props) => {
   const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
-  
+
+  const neymarJunior2011 = () => {
+    setCurrentImg((currentImg) => {
+      if (currentImg + 1 >= list.length) {
+        return 0;
+      } else {
+        return currentImg + 1;
+      }
+    });
+  };
   return (
     <div>
       {/* banner container: relative + aspect-[3/1] defines the height proportionally.
