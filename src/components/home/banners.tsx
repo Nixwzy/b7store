@@ -3,7 +3,6 @@ import { Banner } from '@/types/banner';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { set } from 'zod';
 
 type Props = {
   list: Banner[];
@@ -34,6 +33,7 @@ export const Banners = ({ list }: Props) => {
   const handleBannerClick = (index: number) => {
     setCurrentImg(index);
     clearInterval(carouselTimer); // reset the timer to prevent auto-rotation immediately after a manual change
+    carouselTimer = setInterval(nextBanner, carouselInterval); // restart the timer after manual change
   };
 
   return (
