@@ -10,6 +10,7 @@ type Props = {
 };
 
 let carouselTimer: NodeJS.Timeout; // timer variable to control the banner rotation interval
+let carouselInterval = 3000;
 
 export const Banners = ({ list }: Props) => {
   const [currentImg, setCurrentImg] = useState(0); // state to control which banner is currently visible
@@ -25,7 +26,7 @@ export const Banners = ({ list }: Props) => {
   };
 
   useEffect(() => {
-    carouselTimer = setInterval(nextBanner, 1000);
+    carouselTimer = setInterval(nextBanner, carouselInterval);
     return () => clearInterval(carouselTimer); // cleanup function to clear the timer when the component unmounts
   }, []); 
   
