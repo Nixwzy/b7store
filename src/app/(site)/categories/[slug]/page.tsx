@@ -1,4 +1,5 @@
 import { ProductListFilter } from '@/components/categories/product-list-filter';
+import { capitalize } from '@/libs/utils';
 import Link from 'next/link';
 
 type Props = {
@@ -13,7 +14,7 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <div>
       <div className="text-gray-500 text-sm mb-4">
-        <Link href="/">Home</Link> &gt; <span>{slug}</span>
+        <Link href="/">Home</Link> &gt; <span>{capitalize(slug)}</span>
       </div>
 
       <ProductListFilter />
