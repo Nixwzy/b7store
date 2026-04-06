@@ -35,6 +35,17 @@ export const mockData = {
       liked: false,
     },
   ],
+  product: {
+    id: 1,
+    label: 'Camisa PHP',
+    images: ['/assets/products/camiseta-php.png',
+      '/assets/products/camiseta-laravel-branca.png', 
+      // just testing multiple images
+    ],
+    price: 19.90,
+    liked: false,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.'
+  }
 };
 
 // temporary data - will be replaced by API in the future

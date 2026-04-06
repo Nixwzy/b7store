@@ -17,7 +17,7 @@ export const Banners = ({ list }: Props) => {
       All banners are stacked on top of each other using absolute + inset-0.
       Only the active banner (controlled by current state) will be visible via opacity.
       The transition-all enables smooth fade between banners. */}
-      <div className="relative aspect-[3/1]">
+      <div className="relative aspect-3/1">
         {list.map((banner, index) => (
           <Link
             key={index}
