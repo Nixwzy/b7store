@@ -17,21 +17,22 @@ export const ImageSlider = ({ images }: Props) => {
           alt="Product image"
           width={380}
           height={380}
-          className="max-w-full"
+          className="max-w-full transition-transform duration-300 hover:scale-105"
         />
       </div>
       <div className="grid grid-cols-4 gap-6 mt-8">
         {images.map((image, index) => (
           <div
             key={index}
-            className={`p-2 bg-white cursor-pointer border ${index === currentImage ? 'border-blue-500' : 'border-transparent'}`}
+            className={`p-2 bg-white cursor-pointer border ${index === currentImage ? 'border-blue-500' : 'border-transparent'} hover:border-gray-300`}
           >
             <Image
               src={image}
-              alt=''
+              alt=""
               width={120}
               height={120}
               onClick={() => setCurrentImage(index)}
+              className={`max-w-full transition-transform duration-300 hover:scale-105 ${index === currentImage ? 'border-blue-500' : 'border-transparent'}`}
             />
           </div>
         ))}
