@@ -7,7 +7,7 @@ export const useQueryString = () => {
 
   return {
     get: (key: string) => {
-      return searchParams.get(key) || '';
+      return searchParams.get(key);
     },
     set: (key: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());

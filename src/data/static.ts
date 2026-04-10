@@ -1,5 +1,19 @@
 // Static data — will never change
-export const staticData = {
+export const staticData: {
+  benefits: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+  menu: {
+    label: string;
+    href: string;
+  }[];
+  socialLinks: {
+    href: string;
+    icon: string;
+  }[];
+} = {
   benefits: [
     {
       icon: '/assets/ui/truck-line.png',

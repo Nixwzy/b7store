@@ -6,11 +6,7 @@ export type Product = {
   liked: boolean;
 };
 
-export type ProductFull = {
-  id: number;
-  label: string;
+export type ProductFull = Omit<Product, 'image'> & {
   images: string[];
-  price: number;
-  liked: boolean;
   description: string;
 };

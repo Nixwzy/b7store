@@ -1,4 +1,11 @@
-export const mockData = {
+import { Product, ProductFull } from '@/types/product';
+import { Banner } from '@/types/banner';
+
+export const mockData: {
+  banners: Banner[];
+  products: Product[];
+  product: ProductFull;
+} = {
   banners: [
     { img: '/assets/banners/banner-1.png', link: '' },
     { img: '/assets/banners/banner-2.png', link: '' },
@@ -38,14 +45,16 @@ export const mockData = {
   product: {
     id: 1,
     label: 'Camisa PHP',
-    images: ['/assets/products/camiseta-php.png',
-      '/assets/products/camiseta-laravel-branca.png', 
+    images: [
+      '/assets/products/camiseta-php.png',
+      '/assets/products/camiseta-laravel-branca.png',
       // just testing multiple images
     ],
-    price: 19.90,
+    price: 19.9,
     liked: false,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.'
-  }
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.',
+  },
 };
 
 // temporary data - will be replaced by API in the future
