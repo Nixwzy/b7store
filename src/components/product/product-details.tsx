@@ -13,6 +13,7 @@ export const ProductDetails = ({ product }: Props) => {
   });
   const addToCart = async () => {
     throw new Error('Function not implemented.');
+    // actions/set-cart-state.ts
   };
 
   return (
