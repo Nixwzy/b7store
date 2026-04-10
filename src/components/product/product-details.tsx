@@ -1,5 +1,6 @@
 'use client';
 
+import { useCartStore } from '@/store/cart';
 import { ProductFull } from '@/types/product';
 import Image from 'next/image';
 
@@ -8,6 +9,7 @@ type Props = {
 };
 
 export const ProductDetails = ({ product }: Props) => {
+  const cartStore = useCartStore();
   const formattedPrice = product.price.toLocaleString('pt-BR', {
     minimumFractionDigits: 2,
   });
@@ -25,6 +27,11 @@ export const ProductDetails = ({ product }: Props) => {
         R$ {formattedPrice}
       </div>
       <div className="text-sm text-gray-500 mb-6">Em até 12x no cartão</div>
+
+      {/* debug */}
+      <div className="">carrinho {cartStore.cart.length}</div>
+      {/* debug */}
+
       <div className="flex gap-4">
         <button
           onClick={addToCart}
