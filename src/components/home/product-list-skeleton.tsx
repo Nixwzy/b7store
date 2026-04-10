@@ -1,4 +1,8 @@
-export const ProductListSkeleton = () => {
+type Props = {
+  count?: number;
+};
+
+export const ProductListSkeleton = ({ count = 4 }: Props) => {
   return (
     <div className="mt-10">
       {/* title */}
@@ -7,7 +11,7 @@ export const ProductListSkeleton = () => {
 
       {/* grid */}
       <div className="mt-9 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {Array.from({ length: 4 }).map((_, index) => (
+        {Array.from({ length: count }).map((_, index) => (
           <div key={index} className="bg-gray-200 h-80 rounded animate-pulse" />
         ))}
       </div>

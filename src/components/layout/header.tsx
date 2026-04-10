@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import { HeaderIcon } from './header-icon';
 import Link from 'next/link';
@@ -8,8 +7,8 @@ import { HeaderSearch } from './header-search';
 import { data } from '@/data';
 import { HeaderMobileMenu } from './header-mobile-menu';
 
-export function Header() {
-  const menu = data.menu; // menu array in @/data
+export const Header = () => {
+  const menu = data.menu;
   const [isMenuOpen, setIsMenuOpen] = useState(false); // menu state toggle mobile menu
 
   return (
@@ -24,7 +23,7 @@ export function Header() {
       <div className="p-6 w-full max-w-6xl mx-auto">
         <div className="flex items-center">
           <div className="w-32">
-            <Link href={'/'}>
+            <Link href="/">
               <Image
                 src="/assets/ui/logo-black.png"
                 alt="Logo"
@@ -33,9 +32,10 @@ export function Header() {
               />
             </Link>
           </div>
+
           {/* Desktop Menu */}
           <div className="flex-1">
-            <div className=" w-full hidden md:flex items-center px-6 gap-6">
+            <div className="w-full hidden md:flex items-center px-6 gap-6">
               <div className="flex-1">
                 <ul className="flex gap-10 font-medium text-gray-500">
                   {menu.map((item) => (
@@ -54,20 +54,21 @@ export function Header() {
           {/* user actions */}
           <div className="flex gap-4">
             {/* TODO: Implement order history link */}
-            <Link href={'/orders'}>
+            <Link href="/orders">
               <HeaderIcon src="/assets/ui/user-line.png" alt="User Icon" />
             </Link>
-            <Link href={'/cart'}>
+            <Link href="/cart">
               <HeaderIcon
                 src="/assets/ui/shopping-bag-4-line.png"
                 alt="Cart Icon"
               />
             </Link>
 
-            {/* menu icon*/}
-            <div
+            {/* menu icon */}
+            <button
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Abrir menu"
             >
               <HeaderIcon
                 src="/assets/ui/menu-line.png"
@@ -75,16 +76,18 @@ export function Header() {
                 selected={isMenuOpen}
                 srcSelected="/assets/ui/menu-line-white.png"
               />
-            </div>
+            </button>
           </div>
         </div>
       </div>
+
       {/* mobile menu sections IMPORTED */}
       {isMenuOpen && <HeaderMobileMenu menu={menu} />}
-      {/* search section*/}
+
+      {/* search section */}
       <div className="md:hidden p-6">
         <HeaderSearch />
       </div>
     </header>
   );
-}
+};
