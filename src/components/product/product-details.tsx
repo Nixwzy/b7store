@@ -1,7 +1,9 @@
 'use client';
 
+import { setCartState } from '@/actions/set-cart-state';
 import { useCartStore } from '@/store/cart';
 import { ProductFull } from '@/types/product';
+import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 type Props = {
@@ -14,8 +16,11 @@ export const ProductDetails = ({ product }: Props) => {
     minimumFractionDigits: 2,
   });
   const addToCart = async () => {
-    throw new Error('Function not implemented.');
-    // actions/set-cart-state.ts
+    cartStore.addItem({ productId: product.id, quantity: 1 });
+    const updatedCart = useCartStore.getState().cart;
+    await setCartState(updatedCart);
+    redirect('/cart');
+    console.log('Carrinho atualizado:', updatedCart);
   };
 
   return (
