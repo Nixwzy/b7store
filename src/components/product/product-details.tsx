@@ -1,6 +1,7 @@
 'use client';
 
 import { setCartState } from '@/actions/set-cart-state';
+import { formatPrice } from '@/libs/utils';
 import { useCartStore } from '@/store/cart';
 import { ProductFull } from '@/types/product';
 import { redirect } from 'next/navigation';
@@ -12,9 +13,7 @@ type Props = {
 
 export const ProductDetails = ({ product }: Props) => {
   const cartStore = useCartStore();
-  const formattedPrice = product.price.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
+  const formattedPrice = formatPrice(product.price);
   const addToCart = async () => {
     cartStore.addItem({ productId: product.id, quantity: 1 });
     const updatedCart = useCartStore.getState().cart;
@@ -29,7 +28,7 @@ export const ProductDetails = ({ product }: Props) => {
       <div className="font-bold text-3xl mb-6">{product.label}</div>
       {/* todo: size selector */}
       <div className="font-bold text-4xl text-blue-500 mb-2">
-        R$ {formattedPrice}
+        {formattedPrice}
       </div>
       <div className="text-sm text-gray-500 mb-6">Em até 12x no cartão</div>
 

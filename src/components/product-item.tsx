@@ -1,6 +1,7 @@
 'use client';
 
 import { Product } from '@/types/product';
+import { formatPrice } from '@/libs/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,9 +12,7 @@ type Props = {
 export const ProductItem = ({ data }: Props) => {
   const [liked, setLiked] = useState(data.liked);
   const link = `/product/${data.id}`;
-  const formattedPrice = data.price.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
+  const formattedPrice = formatPrice(data.price);
   const handleLikeToggle = () => {
     setLiked(!liked);
   };
@@ -53,7 +52,7 @@ export const ProductItem = ({ data }: Props) => {
         <Link href={link}>{data.label}</Link>
       </div>
       <div className="mt-3 text-xl font-bold text-blue-600 md:text-center">
-        <Link href={link}>R$ {formattedPrice}</Link>
+        <Link href={link}>{formattedPrice}</Link>
       </div>
       <div className="mt-5 text-gray-400 md:text-center">
         <Link href={link}>À vista ou em até 12x sem juros</Link>
