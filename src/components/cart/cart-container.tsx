@@ -5,6 +5,9 @@ import { CartListItem } from '@/types/cart-list-item';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { CartProductList } from './cart-product-list';
+import { formatPrice } from '@/libs/utils';
+import { PurchaseButton } from './purchase-button';
+import Link from 'next/link';
 type Props = {
   items: CartListItem[];
   totalPrice: number;
@@ -12,6 +15,9 @@ type Props = {
 
 export const CartContainer = ({ items, totalPrice }: Props) => {
   const cartStore = useCartStore((state) => state);
+  const formattedSubtotal = formatPrice(totalPrice);
+  const formattedShipping = formatPrice(cartStore.shipping.cost);
+  const formattedTotal = formatPrice(totalPrice + cartStore.shipping.cost);
 
   useEffect(() => {
     cartStore.clearShippingInfo();
@@ -39,7 +45,45 @@ export const CartContainer = ({ items, totalPrice }: Props) => {
         <div className="flex-1">
           <CartProductList items={items} />
         </div>
-        <div className="flex-1 md:max-w-sm">Info</div>
+        <div className="flex-1 md:max-w-sm flex flex-col gap-4">
+          {/* shipping info */}
+          <div className="">shipping</div>
+          {/* total price info */}
+          <div className="bg-white border border-gray-200 rounded-sm">
+            <div className="border-b border-gray-200 p-6">
+              <div className="flex justify-between items-center mb-5">
+                <div className="">Subtotal</div>
+                <div className="font-semibold">{formattedSubtotal}</div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="">Frete</div>
+                <div className="font-semibold">
+                  {cartStore.shipping.cost === 0 ? 'Grátis' : formattedShipping}
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-2">
+                <div className="">Total</div>
+                <div className="font-semibold text-2xl text-blue-600">
+                  {formattedTotal}
+                </div>
+              </div>
+              <div className="text-right text-xs text-gray-500 mb-5">
+                À vista ou em até 12x sem juros
+              </div>
+              <div className="">
+                <PurchaseButton />
+                <div className="text-center mt-4">
+                  {' '}
+                  <Link href={'/'} className="text-xs text-gray-500 hover:underline">
+                    Comprar outros produtos
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
