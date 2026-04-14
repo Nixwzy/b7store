@@ -1,6 +1,6 @@
 'use server';
 
-import { setServerCart } from '@/libs/server-cookies';
+import { setServerCart } from '@/libs/cookies/cart-cookies';
 import { CartItem } from '@/types/cart-item';
 
 export const setCartState = async (cart: CartItem[]) => {
