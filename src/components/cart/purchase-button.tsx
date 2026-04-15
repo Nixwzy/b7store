@@ -5,11 +5,12 @@ import { finishCart } from '@/actions/finish-cart';
 import { useAuthStore } from '@/store/auth';
 import { useCartStore } from '@/store/cart';
 import Link from 'next/dist/client/link';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 export const PurchaseButton = () => {
   const { token, hydrated } = useAuthStore((state) => state);
   const cartStore = useCartStore((state) => state);
+  const router = useRouter();
 
   const handlePurchase = async () => {
     if (!token || !cartStore.shipping.selectedAddressId) return;
@@ -22,7 +23,7 @@ export const PurchaseButton = () => {
     if (sessionUrl) {
       await clearCartCookie();
       cartStore.clearCart();
-      redirect(sessionUrl);
+      router.push(sessionUrl);
     } else {
       alert(
         'Ocorreu um erro ao finalizar a compra. Por favor, tente novamente.',
