@@ -1,6 +1,9 @@
 'use client';
+import { login } from '@/actions/login';
+import { setAuthCookie } from '@/actions/set-auth-cookie';
 import { useAuthStore } from '@/store/auth';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { FormEvent, ChangeEvent, useState, useTransition } from 'react';
 import { z } from 'zod';
 
@@ -30,12 +33,40 @@ export const LoginForm = () => {
   const authStore = useAuthStore();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors((errors) => ({
+      ...errors,
+      [e.target.name]: undefined,
+      form: undefined,
+    }));
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const result = schema.safeParse(form);
+    if (!result.success) {
+      const fieldErrors: any = {};
+      result.error.issues.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0]] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
+
+    startTransition(async () => {
+      const res = await login(form);
+      if (res.error) {
+        setErrors({ form: res.error });
+      } else if (res.token) {
+        await setAuthCookie(res.token);
+        authStore.setToken(res.token);
+        redirect('/');
+      }
+    });
   };
 
   return (
