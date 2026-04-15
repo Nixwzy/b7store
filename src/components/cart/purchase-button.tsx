@@ -5,7 +5,7 @@ import { finishCart } from '@/actions/finish-cart';
 import { useAuthStore } from '@/store/auth';
 import { useCartStore } from '@/store/cart';
 import Link from 'next/dist/client/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export const PurchaseButton = () => {
   const { token, hydrated } = useAuthStore((state) => state);

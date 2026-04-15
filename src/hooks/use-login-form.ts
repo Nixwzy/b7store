@@ -5,7 +5,7 @@ import { login } from '@/actions/login';
 import { setAuthCookie } from '@/actions/set-auth-cookie';
 import { useAuthStore } from '@/store/auth';
 import { LoginFormInputs, loginSchema } from '@/schemas/auth';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export const useLoginForm = () => {
   const [pending, startTransition] = useTransition();
