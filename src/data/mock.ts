@@ -1,10 +1,14 @@
+// temporary data - will be replaced by API in the future
+
 import { Product, ProductFull } from '@/types/product';
+import { Address } from '@/types/address';
 import { Banner } from '@/types/banner';
 
 export const mockData: {
   banners: Banner[];
   products: Product[];
   product: ProductFull;
+  addresses: Address[];
 } = {
   banners: [
     { img: '/assets/banners/banner-1.png', link: '' },
@@ -55,6 +59,35 @@ export const mockData: {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.',
   },
+  addresses: [
+    {
+      id: 1,
+      zipCode: '12345678',
+      street: 'Rua Teste 1',
+      number: '10',
+      city: 'Cidade Teste 1',
+      state: 'Estado Teste 1',
+      country: 'País Teste 1',
+    },
+    {
+      id: 2,
+      zipCode: '23456789',
+      street: 'Rua Teste 2',
+      number: '20',
+      city: 'Cidade Teste 2',
+      state: 'Estado Teste 2',
+      country: 'País Teste 2',
+      complement: 'Casa',
+    },
+    {
+      id: 3,
+      zipCode: '34567890',
+      street: 'Rua Teste 3',
+      number: '30',
+      city: 'Cidade Teste 3',
+      state: 'Estado Teste 3',
+      country: 'País Teste 3',
+      complement: 'Apartamento',
+    },
+  ],
 };
-
-// temporary data - will be replaced by API in the future

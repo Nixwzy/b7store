@@ -1,0 +1,2 @@
+// src/components/cart/shipping/index.tsx
+// todo: esse arquivo será responsável por toda a parte de frete, cálculo, etc. Ele vai ser importado no CartContainer, e dentro dele vai ter os componentes ShippingSectionLoginY e ShippingSectionLoginN, que vão ser renderizados dependendo se o usuário está logado ou não.

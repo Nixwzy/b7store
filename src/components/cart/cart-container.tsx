@@ -8,6 +8,8 @@ import { CartProductList } from './cart-product-list';
 import { formatPrice } from '@/libs/utils';
 import { PurchaseButton } from './purchase-button';
 import Link from 'next/link';
+import { ShippingSection } from './shipping-section';
+
 type Props = {
   items: CartListItem[];
   totalPrice: number;
@@ -46,9 +48,12 @@ export const CartContainer = ({ items, totalPrice }: Props) => {
           <CartProductList items={items} />
         </div>
         <div className="flex-1 md:max-w-sm flex flex-col gap-4">
-          {/* shipping info */}
-          <div className="">shipping</div>
-          {/* total price info */}
+          {/* shipping section */}
+          <div className="">
+            <ShippingSection />
+          </div>
+
+          {/* total price section */}
           <div className="bg-white border border-gray-200 rounded-sm">
             <div className="border-b border-gray-200 p-6">
               <div className="flex justify-between items-center mb-5">
@@ -76,7 +81,10 @@ export const CartContainer = ({ items, totalPrice }: Props) => {
                 <PurchaseButton />
                 <div className="text-center mt-4">
                   {' '}
-                  <Link href={'/'} className="text-xs text-gray-500 hover:underline">
+                  <Link
+                    href={'/'}
+                    className="text-xs text-gray-500 hover:underline"
+                  >
                     Comprar outros produtos
                   </Link>
                 </div>
