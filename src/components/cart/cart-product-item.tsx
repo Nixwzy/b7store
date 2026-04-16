@@ -1,3 +1,5 @@
+'use client';
+
 import { CartListItem } from '@/types/cart-list-item';
 import { formatPrice } from '@/libs/utils';
 import Image from 'next/image';
@@ -13,14 +15,14 @@ export const CartProductItem = ({ item }: Props) => {
   const formattedPrice = formatPrice(item.product.price);
 
   return (
-    <div className="flex p-6 items-center gap-4 md:gap-8 border-0 md:border-b border-gray-200">
-      <div className="border border-gray-200 p-1">
+    <div className="flex p-6 items-center gap-4 md:gap-8 border-b border-gray-200">
+      <div className="md:border border-0 border-gray-200 p-1 ">
         <Image
           src={item.product.image}
           alt={item.product.label}
           width={96}
           height={96}
-          className="size-24 md:size-16"
+          className="size-24 md:size-16 object-contain shrink-0"
         />
       </div>
       <div className="flex-1 flex flex-col md:flex-row justify-between md:items-center">
@@ -30,7 +32,7 @@ export const CartProductItem = ({ item }: Props) => {
             CÓD: {item.product.id}
           </div>
         </div>
-        {/* quantity interaction area */}
+
         <div>
           <div className="w-30 flex text-gray-500 border border-gray-200 rounded-sm text-center">
             <div
@@ -51,7 +53,7 @@ export const CartProductItem = ({ item }: Props) => {
           </div>
         </div>
       </div>
-      <div className="w-24 md:w-40 flex flex-col md:flex-row justify-between items-end md:items-center">
+      <div className="w-24 md:w-40 flex flex-col md:flex-row justify-between items-end md:items-center gap-2">
         <div className="text-lg text-blue-600 font-semibold">
           {formattedPrice}
         </div>
