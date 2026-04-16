@@ -1,4 +1,3 @@
-// components/product/product-details.tsx
 'use client';
 
 import { setCartState } from '@/actions/set-cart-state';

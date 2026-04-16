@@ -1,4 +1,3 @@
-// types/address.ts
 export type Address = {
   id?: number;
   zipCode: string;

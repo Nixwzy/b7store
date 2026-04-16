@@ -1,4 +1,3 @@
-// schemas/checkout-address.ts
 import { z } from 'zod';
 
 export const checkoutAddressSchema = z.object({
