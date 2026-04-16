@@ -1,15 +1,6 @@
 // components/cart/address-modal.tsx
-
-import { checkoutAddressSchema } from '@/schemas/checkout-address';
 import { Address } from '@/types/address';
-import { on } from 'events';
-import {
-  ChangeEvent,
-  FormEvent,
-  startTransition,
-  useState,
-  useTransition,
-} from 'react';
+import { useAddressForm } from './use-address-form';
 
 type Props = {
   open: boolean;
@@ -18,43 +9,12 @@ type Props = {
 };
 
 export const AddressModal = ({ open, onClose, onSave }: Props) => {
-  const emptyAddress: Address = {
-    zipCode: '',
-    street: '',
-    number: '',
-    city: '',
-    state: '',
-    country: '',
-    complement: '',
-  };
-  const [form, setForm] = useState<Address>(emptyAddress);
-
-  const [error, setError] = useState('');
-  const [pending, setTransition] = useTransition();
+  const { form, error, pending, handleChange, handleSubmit } = useAddressForm(
+    onSave,
+    onClose,
+  );
 
   if (!open) return null;
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const result = checkoutAddressSchema.safeParse(form);
-    if (!result.success) {
-      setError(result.error.issues[0]?.message || 'Preencha todos os campos');
-      return;
-    }
-    setError('');
-    startTransition(async () => {
-      try {
-        await onSave?.(form);
-        setForm(emptyAddress);
-      } catch (err: any) {
-        setError(err?.message || 'Ocorreu um erro ao salvar o endereço.');
-      }
-    });
-  };
 
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-black/90 z-50">
@@ -131,6 +91,7 @@ export const AddressModal = ({ open, onClose, onSave }: Props) => {
             disabled={pending}
             className="border border-gray-200"
           />
+          {error && <span className="text-red-500 text-sm">{error}</span>}
           <button
             type="submit"
             className="bg-blue-600 text-white p-4 rounded-sm"

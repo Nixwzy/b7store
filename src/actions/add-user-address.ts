@@ -2,7 +2,6 @@
 'use server';
 
 import { mockData } from '@/data/mock';
-
 import { Address } from '@/types/address';
 
 export const addUserAddress = async (token: string, address: Address) => {
