@@ -8,7 +8,7 @@ import { CartProductList } from './cart-product-list';
 import { formatPrice } from '@/libs/utils';
 import { PurchaseButton } from './purchase-button';
 import Link from 'next/link';
-import { ShippingSection } from './shipping-section';
+import { ShippingSection } from '@/components/cart/shipping';
 
 type Props = {
   items: CartListItem[];

@@ -1,3 +1,4 @@
+// components/product/product-details.tsx
 'use client';
 
 import { setCartState } from '@/actions/set-cart-state';
@@ -19,7 +20,6 @@ export const ProductDetails = ({ product }: Props) => {
     const updatedCart = useCartStore.getState().cart;
     await setCartState(updatedCart);
     redirect('/cart');
-    console.log('Carrinho atualizado:', updatedCart);
   };
 
   return (
@@ -31,11 +31,6 @@ export const ProductDetails = ({ product }: Props) => {
         {formattedPrice}
       </div>
       <div className="text-sm text-gray-500 mb-6">Em até 12x no cartão</div>
-
-      {/* debug */}
-      <div className="">carrinho {cartStore.cart.length}</div>
-      {/* debug */}
-
       <div className="flex gap-4">
         <button
           onClick={addToCart}
