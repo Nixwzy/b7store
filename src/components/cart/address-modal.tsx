@@ -25,7 +25,7 @@ export const AddressModal = ({ open, onClose, onSave }: Props) => {
         &times;
       </button>
       <div className="bg-white p-8 rounded-sm w-full max-w-md shadow-xl">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Adicionar Endereço</h2>
+        <h2 className="text-center text-2xl font-bold mb-6 text-blue-700">Adicionar Endereço</h2>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
